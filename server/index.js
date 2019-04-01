@@ -27,7 +27,8 @@ app.post('/api/messages', (req, res) => {
     .create({
       from: process.env.TWILIO_PHONE_NUMBER,
       to: req.body.phone,
-      body: req.body.survey_id
+      body: req.body.survey_id === "1" ? "http://54.193.41.250/index.php/442418?lang=en" 
+        : "http://54.193.41.250/index.php/511725?lang=en" 
     })
     .then(() => {
       res.send(JSON.stringify({ success: true }));
